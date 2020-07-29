@@ -4,6 +4,7 @@ export default class Clock extends Component  {
     constructor(props) {
         super(props);
         this.state = {
+            show: true,
             newAge: props.age,
             date: new Date(props.startDate)
         }
@@ -29,16 +30,21 @@ export default class Clock extends Component  {
         })
     };
 
+    removeComponent(){
+        this.setState({
+            show: false,
+        })
+    }
     render() {
         const {name} = this.props;
-        const {date} = this.state;
-        const {newAge} = this.state;
-        return (
-            <div>
+        const {date, newAge, show} = this.state;
+        return show
+            ? <div>
                 <h1>Hello, {name}!</h1>
                 <h2>New age: {newAge}</h2>
                 <h2>Date: {date.toLocaleString()}</h2>
+                <button onClick={()=>this.removeComponent()}>Delete</button>
             </div>
-        );
+            : null
     }
 }
