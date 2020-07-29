@@ -5,17 +5,21 @@ export default class Clock extends Component  {
         super(props);
         this.state = {
             newAge: props.age,
-            date: new Date()
+            date: new Date(props.startDate)
         }
     }
     componentDidMount() {
-        setInterval(()=> this.tick(), 1000);
+        // setInterval(()=> this.tick(), 1000);
         setInterval(()=> this.agePlus(), 1000);
+        this.tick();
     }
     tick(){
+        const {date} = this.state;
+        const newDate = +date + 1000;
         this.setState({
-            date: new Date()
+            date: new Date(newDate),
         })
+        console.log(new Date(newDate));
     }
     agePlus(){
         const {newAge}=this.state;
@@ -33,7 +37,7 @@ export default class Clock extends Component  {
             <div>
                 <h1>Hello, {name}!</h1>
                 <h2>New age: {newAge}</h2>
-                <h2>It is {date.toLocaleString()}</h2>
+                <h2>Date: {date.toLocaleString()}</h2>
             </div>
         );
     }
