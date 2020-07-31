@@ -43,7 +43,7 @@ export default class Clock extends Component {
         const {name} = this.props;
         const {newAge, date} = this.state;
         return (
-            <div>
+            <div style={{border: "1px solid red", margin: 20}}>
                 <h1>Hello, {name}!</h1>
                 <h2>New age: {newAge} </h2>
                 <h2>Date: {date.toLocaleString()}</h2>

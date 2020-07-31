@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //components
-import ClockWrapper from "./containers/ClockWrapper/ClockWrapper";
-
+// import ClockWrapper from "./containers/ClockWrapper/ClockWrapper";
+import StarWars from "./containers/StaкWars/StarWars";
 
 ReactDOM.render(
     <>
-
-        <ClockWrapper/>
+        <StarWars/>
+        {/*<ClockWrapper/>*/}
     </>,
     document.getElementById('root')
 );
